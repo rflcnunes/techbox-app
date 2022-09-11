@@ -3,12 +3,12 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\RabbitMQ\Consumer\ConsumerInterface;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use App\RabbitMQ\Consumer\Consumer;
 
 class ConsumerCommand extends Command
 {
+    private $consumer;
+
     /**
      * The name and signature of the console command.
      *
@@ -21,16 +21,17 @@ class ConsumerCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Runs a AMQP consumer that defers work to the Laravel queue worker';
+    protected $description = 'Runs a AMQP consumer';
 
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Consumer $consumer)
     {
         parent::__construct();
+        $this->consumer = $consumer;
     }
 
     /**
@@ -40,23 +41,8 @@ class ConsumerCommand extends Command
      */
     public function handle()
     {
-        $connection = new AMQPStreamConnection('rabbitmq', 5672, 'guest', 'guest');
-
-        $channel = $connection->channel();
-    
-        $callback = function ($message) {
-            echo $message->body;
-        };
-        
-        $channel->basic_consume('create_post_queue', '', false, true, false, false, $callback);
-        $channel->basic_consume('post_log_queue', '', false, true, false, false, $callback);
-        // $channel->basic_consume('sendEmail', '', false, true, false, false, $callback);
-    
-        while ($channel->is_consuming()) {
-            $channel->wait();
-        }
-    
-        $channel->close();
-        $connection->close();
+        $this->consumer->consume('rabbitmq', 'create_post_queue', function ($message) {
+            return $message->body;
+        });
     }
 }
