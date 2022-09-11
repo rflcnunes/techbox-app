@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\Contracts\UserRepositoryInterface;
+use App\Http\Requests\CreateUserRequest;
 
 class UserController extends Controller
 {
@@ -32,5 +33,10 @@ class UserController extends Controller
     public function show($id)
     {
         return $this->userRepository->getById($id);
+    }
+
+    public function create(CreateUserRequest $request)
+    {
+        return response()->json($this->userRepository->create($request->all()), 201);
     }
 }

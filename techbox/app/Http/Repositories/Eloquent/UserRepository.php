@@ -23,5 +23,10 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->user->find($id)->load('posts', 'comments');
     }
+
+    public function create(array $data)
+    {
+        return $this->user->create($data);
+    }
     
 }
