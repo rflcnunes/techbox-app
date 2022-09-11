@@ -26,6 +26,6 @@ To publish in rabbitmq
 http://techbox.test/send
 
 To consume in rabbitmq
-http://techbox.test/consume
+http://techbox.test/consumer
 
 
