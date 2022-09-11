@@ -37,7 +37,7 @@ RabbitMQ:
 To access database
 http://localhost:8081/index.php
 
-PhpMyAdmin
+PhpMyAdmin:
     user && password: root
 
 To publish in rabbitmq
