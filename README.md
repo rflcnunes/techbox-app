@@ -31,7 +31,14 @@ http://techbox.test/
 To access rabbitmq
 http://localhost:15672/#/
 
-#### user && password: guest
+RabbitMQ:
+    user && password: guest
+
+To access database
+http://localhost:8081/index.php
+
+PhpMyAdmin
+    user && password: root
 
 To publish in rabbitmq
 http://techbox.test/send
