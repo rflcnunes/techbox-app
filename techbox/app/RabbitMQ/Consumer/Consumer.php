@@ -29,8 +29,6 @@ class Consumer implements ConsumerInterface
         };
 
         $channel->basic_consume($queue, '', false, true, false, false, $callback);
-        // $channel->basic_consume('post_log_queue', '', false, true, false, false, $callback);
-        // $channel->basic_consume('sendEmail', '', false, true, false, false, $callback);
 
         while ($channel->is_consuming()) {
             $channel->wait();
