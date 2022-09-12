@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
+// use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return inertia('HelloWorld');
 });
 
 Route::get('/send', function () {
