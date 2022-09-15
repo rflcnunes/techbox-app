@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Repositories\Eloquent;
+namespace App\Repositories;
 
 use App\Models\User;
-use App\Http\Repositories\Contracts\UserRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -28,5 +28,5 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->user->create($data);
     }
-    
+
 }
