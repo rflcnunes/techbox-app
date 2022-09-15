@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Repositories\Eloquent;
+namespace App\Repositories;
 
 use App\Models\Post;
-use App\Http\Repositories\Contracts\PostRepositoryInterface;
+use App\Repositories\Interfaces\PostRepositoryInterface;
 
 class PostRepository implements PostRepositoryInterface
 {
@@ -21,7 +21,7 @@ class PostRepository implements PostRepositoryInterface
 
     public function getById($id)
     {
-        return $this->post->find($id)->load('users', 'comments');
+        return $this->post->find($id);
     }
-    
+
 }

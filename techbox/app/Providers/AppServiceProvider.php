@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use App\Http\Repositories\Contracts\UserRepositoryInterface;
-use App\Http\Repositories\Eloquent\UserRepository;
-use App\Http\Repositories\Contracts\PostRepositoryInterface;
-use App\Http\Repositories\Eloquent\PostRepository;
-use App\Http\Repositories\Contracts\CommentRepositoryInterface;
-use App\Http\Repositories\Eloquent\CommentRepository;
+use App\Repositories\CommentRepository;
+use App\Repositories\Interfaces\CommentRepositoryInterface;
+use App\Repositories\Interfaces\PostRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\PostRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

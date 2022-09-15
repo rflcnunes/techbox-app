@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Repositories\Contracts\CommentRepositoryInterface;
+use App\Repositories\Interfaces\CommentRepositoryInterface;
 
 class CommentController extends Controller
 {

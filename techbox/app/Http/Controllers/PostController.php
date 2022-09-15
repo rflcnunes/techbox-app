@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Repositories\Contracts\PostRepositoryInterface;
+use App\Repositories\Interfaces\PostRepositoryInterface;
 
 class PostController extends Controller
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Repositories\Eloquent;
+namespace App\Repositories;
 
 use App\Models\Comment;
-use App\Http\Repositories\Contracts\CommentRepositoryInterface;
+use App\Repositories\Interfaces\CommentRepositoryInterface;
 
 class CommentRepository implements CommentRepositoryInterface
 {
@@ -23,5 +23,5 @@ class CommentRepository implements CommentRepositoryInterface
     {
         return $this->comment->find($id)->load('posts');
     }
-    
+
 }
